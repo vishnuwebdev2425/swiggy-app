@@ -1,17 +1,24 @@
 import React from "react";
 import { Component } from "react";
+import Childclass from "./Childclass";
 
 class Class extends Component{
     constructor(props){
         super(props)
+        console.log("Parent Constructor")
     }
     state={
       count:0,
       count2:0
     }
+    componentDidMount(){
+      console.log("Parent Component Did Mount")
+
+    }
     render(){
         const {name,location}=this.props
         const{count,count2}=this.state
+        console.log("Parent Render")
         return (
           <div className="restaurant-background">
             <div className="content-center">
@@ -33,6 +40,7 @@ class Class extends Component{
                 increasesecondary
 
               </button>
+              <Childclass/>
             </div>
           </div>
         );
