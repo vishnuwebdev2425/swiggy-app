@@ -183,3 +183,11 @@ body {
   text-decoration: none;
   text-underline-offset: unset;
 } 
+.restaurant-background{
+  background-color: white;
+  margin-top: 10px;
+}
+.margim-container{
+  margin-top: 10px;
+  padding-top: 10px;
+}

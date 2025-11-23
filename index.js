@@ -6,6 +6,8 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom"
 import About from "./src/About"
 import Contact from "./src/Contact"
 import Error from "./src/Error"
+import Restaurant from "./src/Restarurant"
+
 
 const NamasteApp=()=>{
     return(
@@ -32,6 +34,9 @@ const approuter=createBrowserRouter([
     },{
         path:"/contact",
         element:<Contact/>
+    },{
+        path:"/restaurant/:id",
+        element:<Restaurant/>
     }
             
         ],
