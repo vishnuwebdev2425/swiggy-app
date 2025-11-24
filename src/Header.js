@@ -25,6 +25,9 @@ const Header=()=>{
           <Link to="/about" className="link-style">
             <h1 className="hell">About Us</h1>
           </Link>
+          <Link to="/testing" className="link-style">
+            <h1 className="hell">Testing</h1>
+          </Link>
           <a href="https://www.swiggy.com/" target="_blank">
             <button className="get-btns btns">Get The App</button>
           </a>

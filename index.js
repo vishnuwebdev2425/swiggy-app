@@ -7,6 +7,7 @@ import About from "./src/About"
 import Contact from "./src/Contact"
 import Error from "./src/Error"
 import Restaurant from "./src/Restarurant"
+import Testing from "./src/Testing"
 
 
 const NamasteApp=()=>{
@@ -37,6 +38,9 @@ const approuter=createBrowserRouter([
     },{
         path:"/restaurant/:id",
         element:<Restaurant/>
+    },{
+        path:"/testing",
+        element:<Testing/>
     }
             
         ],
