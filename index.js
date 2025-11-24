@@ -29,10 +29,7 @@ const approuter=createBrowserRouter([
                 element:<Data/>
 
             },
-            {
-        path:"/about",
-        element:<About/>
-    },{
+           {
         path:"/contact",
         element:<Contact/>
     },{
@@ -41,6 +38,10 @@ const approuter=createBrowserRouter([
     },{
         path:"/testing",
         element:<Testing/>
+    },{
+        path:"/about/:username",
+        element:<About/>
+
     }
             
         ],
