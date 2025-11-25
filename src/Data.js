@@ -55,23 +55,39 @@ const Data=()=>{
     
     return (
       <div>
-        <div className="body-container ">
+        <div className="">
           <div>
-            <div className="search-container">
-              <input className="input-conatiner" type="text" value={search} onChange={(e)=>{
-                setsearch(e.target.value)
-              }}/>
-              <button className="button-container" onClick={()=>{
-                const data = newList.filter((each) => {
-                  return each.name
-                    .toUpperCase()
-                    .includes(search.toUpperCase());
-                });
-                SetProductItemList(data)
-              }}>Search</button>
+            <div className="flex flex-row justify-center">
+              <input
+                className="border border-black m-5 px-2 py-1"
+                type="text"
+                value={search}
+                onChange={(e) => setsearch(e.target.value)}
+              />
+              <button
+                className="border border-solid h-[50px] mt-3 rounded-[5px] p-1 w-[120px] bg-black text-white text-bold cursor-pointer hover:bg-amber-400"
+                onClick={() => {
+                  const data = newList.filter((each) => {
+                    return each.name
+                      .toUpperCase()
+                      .includes(search.toUpperCase());
+                  });
+                  SetProductItemList(data);
+                }}
+              >
+                Search
+              </button>
             </div>
-            <button className="btn-products" onClick={finalset}>Top Products</button>
-            <div className="main-wrapper">
+            <div className="flex flex-row justify-center">
+              <button
+                className="border border-solid border-red-500 p-3 m-3 text-white text-bold bg-green-500 rounded-2xl cursor-pointer hover:text-black"
+                onClick={finalset}
+              >
+                Top Products
+              </button>
+            </div>
+
+            <div className="flex flex-wrap">
               {finalList.map((each) => {
                 return <ProductItem item={each} key={each.id} />;
               })}
