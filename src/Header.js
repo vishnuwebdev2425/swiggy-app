@@ -1,12 +1,13 @@
 import React from "react";
 import { useState ,useEffect} from "react";
 import { Link } from "react-router-dom";
-
+import UseOnlinestatus from "../utils/useOnlinestatus";
 const Header=()=>{
   const [btnstatus,setbtnstatus]=useState("Login")
   useEffect(()=>{
     console.log('This is Working')
   },[btnstatus])
+  const data=UseOnlinestatus()
   
     return (
       <div className="header_container">
@@ -19,6 +20,9 @@ const Header=()=>{
           </Link>
         </div>
         <div className="flexing-header-elements">
+          
+            <h1> {data ? "🟢" : "🔴"}</h1>
+         
           <Link to="/contact" className="link-style">
             <h1 className="hell">Contact Us</h1>
           </Link>
@@ -27,6 +31,9 @@ const Header=()=>{
           </Link>
           <Link to="/testing" className="link-style">
             <h1 className="hell">Testing</h1>
+          </Link>
+          <Link to="/grocery" className="link-style">
+          <h1 className="hell">Grocery</h1>
           </Link>
           <a href="https://www.swiggy.com/" target="_blank">
             <button className="get-btns btns">Get The App</button>

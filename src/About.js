@@ -8,6 +8,7 @@ const About=()=>{
     console.log(result)
     const{bio,id,avatar_url,location,name,public_repos}=result
     console.log(bio)
+    
     return(
         <div className="final-container">
             <h1>Welcome to Know About The Author</h1>
