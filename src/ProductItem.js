@@ -20,4 +20,17 @@ const ProductItem = ({ item }) => {
     </div>
   );
 };
+
+export const newProductItem=(ProductItem)=>{
+  return (props)=>{
+    return (
+      <div>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-b-lg">Top Rated</label>
+        <ProductItem {...props}/>
+      </div>
+    );
+    
+
+  }
+}
 export default ProductItem

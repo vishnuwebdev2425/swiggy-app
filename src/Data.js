@@ -1,6 +1,6 @@
 import React from "react";
 import items from "../utils/Products";
-import ProductItem from "./ProductItem";
+import ProductItem, { newProductItem } from "./ProductItem";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 
@@ -10,6 +10,7 @@ const Data=()=>{
     const [search,setsearch]=useState("")
     const [newList,setnewList]=useState([])
     const[topproduct,settopproduct]=useState([])
+    const NewupdatedCard=newProductItem(ProductItem)
     
 
     
@@ -89,7 +90,13 @@ const Data=()=>{
 
             <div className="flex flex-wrap">
               {finalList.map((each) => {
-                return <ProductItem item={each} key={each.id} />;
+                if(each.avgRating>4.4){
+                  return <NewupdatedCard item={each} key={each.id}/>
+                }else{
+                  return <ProductItem item={each} key={each.id} />;
+
+                }
+                
               })}
             </div>
           </div>
