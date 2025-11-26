@@ -22,9 +22,10 @@ const Data=()=>{
     useEffect(()=>{
       gettingdetails()
       
+      
     },[])
-    
 
+   
     const gettingdetails=async()=>{
       try{
         const result = await fetch(

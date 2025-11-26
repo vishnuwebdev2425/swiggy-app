@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 const ProductItem = ({ item }) => {
-  const { name, avgRating, locality, url,cloudinaryImageId ,id} = item;
   
+  const { name, avgRating, locality, url,cloudinaryImageId ,id} = item;
+ 
   const ImageId=`https://media-assets.swiggy.com/swiggy/image/upload/${cloudinaryImageId}`
 
   return (
@@ -14,8 +15,9 @@ const ProductItem = ({ item }) => {
         <p className="card-rating">⭐ {avgRating}</p>
         <p className="card-place">{locality}</p>
         <Link to={"/restaurant/"+id}>
-          <button className="order-btn">Order Now</button>
+          <button className="p-3 m-2 border border-solid bg-amber-600 rounded-2xl text-white font-bold cursor-pointer">Get Info</button>
         </Link>
+        
       </div>
     </div>
   );
