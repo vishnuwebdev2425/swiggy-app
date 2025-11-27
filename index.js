@@ -8,17 +8,22 @@ import Contact from "./src/Contact"
 import Error from "./src/Error"
 import Restaurant from "./src/Restarurant"
 import Testing from "./src/Testing"
+import { Provider } from "react-redux"
+import appstore from "./utils/appstore"
+import Cart from "./src/Cart"
 
 
 const Grocery = lazy(() => import("./src/Grocery"));
 
 const NamasteApp=()=>{
-    return(
+    return (
+      <Provider store={appstore}>
         <div className="shiva">
-            <Header/>
-            <Outlet/>
+          <Header />
+          <Outlet />
         </div>
-    )
+      </Provider>
+    );
 }
 
 const approuter = createBrowserRouter([
@@ -39,12 +44,13 @@ const approuter = createBrowserRouter([
         element: <Restaurant />,
       },
       {
-        path: "/testing",
-        element: <Testing />,
-      },
-      {
         path: "/about/:username",
         element: <About />,
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
+
       },
       {
         path: "/grocery",

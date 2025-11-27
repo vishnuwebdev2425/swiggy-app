@@ -1,8 +1,18 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartslice";
 const Topper=(props)=>{
+
     console.log(props.property);
     const { cloudinaryImageId, address, areaName, avgRating, cuisines, name ,sla} =
       props.property;
-      console.log(sla)
+     
+    const dispatch=useDispatch()
+
+
+    const  finalresultfunction=(props)=>{
+      dispatch(addItem(props))
+
+    }
     const ImageId = `https://media-assets.swiggy.com/swiggy/image/upload/${cloudinaryImageId}`;
     return (
       <div className="bg-gray-300 flex flex-row cursor-pointer hover:bg-orange-300 ">
@@ -23,7 +33,7 @@ const Topper=(props)=>{
             ExpectedDelivery:{sla.deliveryTime
 } Min
           </h1> */}
-          <button className="h-[60] w-[120] border border-solid bg-amber-200 font-bold text-black rounded-2xl cursor-pointer hover:bg-blue-400">Order Now</button>
+          <button onClick={()=>finalresultfunction(props)} className="h-[60] w-[120] border border-solid bg-amber-200 font-bold text-black rounded-2xl cursor-pointer hover:bg-blue-400">Add To Cart</button>
         </div>
       </div>
     );

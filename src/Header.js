@@ -2,11 +2,14 @@ import React from "react";
 import { useState ,useEffect} from "react";
 import { Link } from "react-router-dom";
 import UseOnlinestatus from "../utils/useOnlinestatus";
+import { useSelector } from "react-redux";
 const Header=()=>{
   const [btnstatus,setbtnstatus]=useState("Login")
   useEffect(()=>{
     console.log('This is Working')
   },[btnstatus])
+
+ const items=useSelector((store)=>store.cart.things)
   const data=UseOnlinestatus()
   
     return (
@@ -22,15 +25,20 @@ const Header=()=>{
         <div className="flex flex-row justify-end mt-8 ml-100 ">
           <h1> {data ? "🟢" : "🔴"}</h1>
 
-          <Link to="/contact" className="mx-5 hover:text-white cursor-pointer border-solid border-amber-300">
+          <Link
+            to="/contact"
+            className="mx-5 hover:text-white cursor-pointer border-solid border-amber-300"
+          >
             <h1 className="hell">Contact Us</h1>
           </Link>
           <Link to="/about" className="mx-5  hover:text-white cursor-pointer">
             <h1 className="hell">About Us</h1>
           </Link>
-          <Link to="/testing" className="mx-5  hover:text-white cursor-pointer">
-            <h1 className="hell">Testing</h1>
+          <Link to="/cart" className="mx-5  hover:text-white cursor-pointer">
+            <h1>Cart - {items.length
+              }</h1>
           </Link>
+
           <Link to="/grocery" className="mx-5  hover:text-white cursor-pointer">
             <h1 className="hell">Grocery</h1>
           </Link>
