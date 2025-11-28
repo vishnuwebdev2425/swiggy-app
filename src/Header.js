@@ -3,22 +3,29 @@ import { useState ,useEffect} from "react";
 import { Link } from "react-router-dom";
 import UseOnlinestatus from "../utils/useOnlinestatus";
 import { useSelector } from "react-redux";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 const Header=()=>{
   const [btnstatus,setbtnstatus]=useState("Login")
   useEffect(()=>{
     console.log('This is Working')
   },[btnstatus])
+  const {loggedInuser}=useContext(UserContext)
+  console.log(console.log(loggedInuser))
 
  const items=useSelector((store)=>store.cart.things)
   const data=UseOnlinestatus()
+  const finalfunc=()=>{
+    
+  }
   
     return (
       <div className="bg-orange-400 flex justify-around">
         <div>
           <Link to="/">
             <img
-              className="w-50 p-5 "
-              src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/static-assets/images/swiggy_logo_white.png"
+              className="w-50 h-[120] p-5 "
+              src="https://i.pinimg.com/originals/b1/fc/bb/b1fcbbfd4fb8116c714ef352bb39bbaf.jpg"
             />
           </Link>
         </div>
@@ -35,8 +42,7 @@ const Header=()=>{
             <h1 className="hell">About Us</h1>
           </Link>
           <Link to="/cart" className="mx-5  hover:text-white cursor-pointer">
-            <h1>Cart - {items.length
-              }</h1>
+            <h1>Cart - {items.length}</h1>
           </Link>
 
           <Link to="/grocery" className="mx-5  hover:text-white cursor-pointer">
@@ -59,6 +65,12 @@ const Header=()=>{
           >
             {btnstatus}
           </button>
+          {/* <button className="cursor-pointer border border-solid " onClick={finalfunc}>
+            Change Context
+          </button> */}
+          <h1 className="ml-2 text-white font-bold cursor-pointer hover:text-black">
+            Usename:{loggedInuser}
+          </h1>
         </div>
         <br></br>
       </div>

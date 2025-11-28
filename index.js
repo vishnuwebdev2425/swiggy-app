@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react"
+import React,{lazy,Suspense, use, useEffect, useState} from "react"
 import ReactDOM from "react-dom/client"
 import Header from "./src/Header"
 import Data from "./src/Data"
@@ -7,22 +7,37 @@ import About from "./src/About"
 import Contact from "./src/Contact"
 import Error from "./src/Error"
 import Restaurant from "./src/Restarurant"
-import Testing from "./src/Testing"
+
 import { Provider } from "react-redux"
 import appstore from "./utils/appstore"
 import Cart from "./src/Cart"
+import UserContext from "./utils/UserContext"
 
 
 const Grocery = lazy(() => import("./src/Grocery"));
 
 const NamasteApp=()=>{
+  const [username,setusername]=useState()
+  const finalcall = () => {
+    const data ={
+      name:"Vishnu"
+    }
+    setusername(data.name);
+    console.log(username)
+  };
+   useEffect(()=>{
+    finalcall()
+
+   },[])
     return (
-      <Provider store={appstore}>
-        <div className="shiva">
-          <Header />
-          <Outlet />
-        </div>
-      </Provider>
+      <UserContext.Provider value={{loggedInuser:username}}>
+        <Provider store={appstore}>
+          <div className="shiva">
+            <Header />
+            <Outlet />
+          </div>
+        </Provider>
+      </UserContext.Provider>
     );
 }
 
